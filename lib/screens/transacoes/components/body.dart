@@ -179,7 +179,17 @@ class Body extends StatelessWidget {
                     saldo: fmfSaldob1c2.output.nonSymbol,
                     saldoPrevisto: fmfSaldob1c2.output.nonSymbol,
                     logo: "assets/images/itau.png",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ExtratoScreen(
+                            banco: "Banco1",
+                            nickName: "xxxx1002",
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   Divider(
                     color: Colors.white,

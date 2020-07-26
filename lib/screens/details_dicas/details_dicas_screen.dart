@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meu_money/models/Dicas.dart';
+import 'package:meu_money/screens/details_dicas/components/body.dart';
 
 class DetailDicasScreen extends StatelessWidget {
   final Dicas dicas;
@@ -8,6 +9,8 @@ class DetailDicasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Body(dicas: dicas),
+    );
   }
 }

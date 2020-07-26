@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meu_money/components/my_bottom_nv_bar.dart';
 import 'package:meu_money/constants.dart';
+import 'package:meu_money/models/Extrato.dart';
 import 'package:meu_money/screens/extrato/components/body.dart';
 import 'package:meu_money/size_config.dart';
 
@@ -16,7 +17,9 @@ class ExtratoScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(
+        nickName: nickName,
+      ),
       bottomNavigationBar: MyBottomNavBar(),
     );
   }

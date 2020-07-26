@@ -5,15 +5,19 @@ class Extrato {
   final String transactionInformation;
   final String tipo;
   final double valor;
+  final double saldo;
 
-  Extrato(
-      {this.transactionId,
-      this.accountId,
-      this.data,
-      this.transactionInformation,
-      this.tipo,
-      this.valor});
+  Extrato({
+    this.transactionId,
+    this.accountId,
+    this.data,
+    this.transactionInformation,
+    this.tipo,
+    this.valor,
+    this.saldo,
+  });
 }
+// =CONCAT("Extrato(accountId:";"""";'Transformed by JSON-CSV.CO'!A2;""",";"transactionId:";"""";'Transformed by JSON-CSV.CO'!D2;""",";"data:";"DateTime(";LEFT('Transformed by JSON-CSV.CO'!B2;4);",";MID('Transformed by JSON-CSV.CO'!B2;6;2);",";MID('Transformed by JSON-CSV.CO'!B2;9;2);"),";"transactionInformation:";"""";'Transformed by JSON-CSV.CO'!C2;""",";"tipo:";"""";'Transformed by JSON-CSV.CO'!F2;""",";"valor:";'Transformed by JSON-CSV.CO'!E2;",saldo:";'Transformed by JSON-CSV.CO'!G2;"),")
 
 final List<Extrato> extratos = [
   Extrato(

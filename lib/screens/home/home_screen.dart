@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:meu_money/components/my_bottom_nv_bar.dart';
 import 'package:meu_money/constants.dart';
+import 'package:meu_money/models/Contas.dart';
 import 'package:meu_money/models/Despesas.dart';
 import 'package:meu_money/models/Extrato.dart';
 import 'package:meu_money/models/RendasGastos.dart';
@@ -16,14 +17,19 @@ import 'package:meu_money/size_config.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var _rendas = extratos.where((i) => i.tipo == "Debit").toList();
-    var _gastos = extratos.where((i) => i.tipo == "Credit").toList();
+    // var _rendas = extratos.where((i) => i.tipo == "Debit").toList();
+    // var _gastos = extratos.where((i) => i.tipo == "Credit").toList();
+
+    double _saldo = 0.0;
+    contas.forEach((element) => _saldo = _saldo + element.saldo);
 
     double totalRendas = 0;
-    _rendas.forEach((element) => totalRendas = totalRendas + element.valor);
+    // _rendas.forEach((element) => totalRendas = totalRendas + element.valor);
 
     double totalGastos = 0;
-    _gastos.forEach((element) => totalGastos = totalGastos + element.valor);
+    extratos.forEach((element) => totalGastos = totalGastos + element.valor);
+
+    totalRendas = _saldo + totalGastos;
 
     final List<RendaGasto> data = [
       RendaGasto(

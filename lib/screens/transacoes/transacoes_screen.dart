@@ -14,9 +14,13 @@ class TransacoesScreen extends StatelessWidget {
 //     var earlier = now.subtract(const Duration(seconds: 5));
 // assert(earlier.isBefore(now));
 
-    var _extrato = extratos.where((i) => i.data.month == 7).toList();
-    var _extrato2 =
-        extratos.where((i) => (i.data.month == 7 && i.data.day < 25)).toList();
+    var _extrato = extratos
+        .where((i) => i.data.month == 7 && i.data.year == 2019)
+        .toList();
+    var _extrato2 = extratos
+        .where((i) =>
+            (i.data.month == 7 && i.data.day < 25 && i.data.year == 2019))
+        .toList();
 
     double total = 0;
     _extrato.forEach((element) => total = total + element.valor);

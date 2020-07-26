@@ -15,6 +15,7 @@ class DicasCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: OpenContainer(
+        closedColor: Colors.black,
         closedElevation: 0,
         openElevation: 0,
         closedBuilder: (context, action) => buildMovieCard(context),
@@ -48,6 +49,7 @@ class DicasCard extends StatelessWidget {
             dicas.title,
             style: Theme.of(context).textTheme.headline5.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: Colors.white,
                 ),
           ),
         ),
@@ -63,7 +65,9 @@ class DicasCard extends StatelessWidget {
             ),
             Text(
               "${dicas.rating}",
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    color: Colors.white,
+                  ),
             ),
           ],
         ),
