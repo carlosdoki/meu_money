@@ -76,8 +76,8 @@ class TransacoesScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: buildAppBar(),
       body: SafeArea(
-        child: Container(
-          child: Expanded(
+        child: Expanded(
+          child: Container(
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -123,7 +123,7 @@ class TransacoesScreen extends StatelessWidget {
                 ),
                 SingleChildScrollView(
                   child: Container(
-                    height: 513,
+                    height: SizeConfig.screenHeight - 350,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
@@ -374,7 +374,7 @@ class SaldoBancos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.0,
+      // height: 100.0,
       child: Padding(
         padding: EdgeInsets.all(5.0),
         child: Row(
@@ -400,6 +400,15 @@ class SaldoBancos extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  nickName,
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 Text(

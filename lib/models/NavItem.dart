@@ -39,7 +39,7 @@ class NavItems extends ChangeNotifier {
     ),
     NavItem(
       id: 3,
-      icon: "assets/icons/camera.svg",
+      icon: "assets/icons/chat.svg",
     ),
     NavItem(
       id: 4,

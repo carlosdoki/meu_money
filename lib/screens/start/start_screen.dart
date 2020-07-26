@@ -28,12 +28,33 @@ class _StartScreenState extends State<StartScreen> {
   }
 
   teste() async {
-    SecurityContext clientContext = new SecurityContext()
-      ..setClientAuthorities(
-          '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_certificate.crt')
-      ..usePrivateKey(
-          '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_private_key.key');
-    var client = new HttpClient(context: clientContext);
+    final SecurityContext context = SecurityContext(withTrustedRoots: false);
+    // .defaultContext;
+
+    // final ByteData crtData =
+    //     await rootBundle.load('assets/certificados/Banco_1/certs/chain.crt');
+    // context.useCertificateChainBytes(crtData.buffer.asUint8List());
+
+    final ByteData authoritiesBytes = await rootBundle
+        .load('assets/certificados/Banco_1/certs/client_certificate.crt');
+    context.setTrustedCertificatesBytes(authoritiesBytes.buffer.asUint8List());
+    context.setClientAuthoritiesBytes(authoritiesBytes.buffer.asUint8List());
+
+    final ByteData keyBytes = await rootBundle
+        .load('assets/certificados/Banco_1/certs/client_private_key.key');
+    context.usePrivateKeyBytes(keyBytes.buffer.asUint8List());
+
+    var client = HttpClient(context: context);
+
+    // SecurityContext clientContext = new SecurityContext()
+    //   ..setClientAuthorities(
+    //       '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_certificate.crt')
+    //   ..useCertificateChain(
+    //       '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/chain.crt')
+    //   ..usePrivateKey(
+    //       '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_private_key.key');
+
+    // var client = new HttpClient(context: clientContext);
     var request = await client.postUrl(Uri.parse(
         "https://as1.tecban-sandbox.o3bank.co.uk/token?grant_type=client_credentials&scope=accounts%20openid"));
     var response = await request.close();
