@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meu_money/screens/comunidade/comunidade_screen.dart';
 import 'package:meu_money/screens/home/home_screen.dart';
 import 'package:meu_money/screens/more/more_screen.dart';
 import 'package:meu_money/screens/transacoes/transacoes_screen.dart';
@@ -40,6 +41,7 @@ class NavItems extends ChangeNotifier {
     NavItem(
       id: 3,
       icon: "assets/icons/chat.svg",
+      destination: ComunidadeScreen(),
     ),
     NavItem(
       id: 4,
