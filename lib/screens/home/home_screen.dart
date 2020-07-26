@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: buildAppBar(),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             // charts.BarChart(series, animate: true),

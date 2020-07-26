@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meu_money/constants.dart';
 import 'package:meu_money/models/Dicas.dart';
+import 'package:meu_money/screens/details_dicas/details_dicas_screen.dart';
 
 class DicasCard extends StatelessWidget {
   final Dicas dicas;
@@ -17,9 +18,9 @@ class DicasCard extends StatelessWidget {
         closedElevation: 0,
         openElevation: 0,
         closedBuilder: (context, action) => buildMovieCard(context),
-        // openBuilder: (context, action) => DetailsScreen(
-        //   movie: movie,
-        // ),
+        openBuilder: (context, action) => DetailDicasScreen(
+          dicas: dicas,
+        ),
       ),
     );
   }
