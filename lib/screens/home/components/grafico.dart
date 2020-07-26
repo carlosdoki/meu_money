@@ -2,6 +2,8 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:meu_money/constants.dart';
 import 'package:meu_money/models/Despesas.dart';
+import 'package:meu_money/models/Extrato.dart';
+import 'package:meu_money/models/RendasGastos.dart';
 import 'package:meu_money/size_config.dart';
 
 class Grafico extends StatelessWidget {
@@ -10,7 +12,7 @@ class Grafico extends StatelessWidget {
     @required this.series,
   }) : super(key: key);
 
-  final List<charts.Series<Despesas, String>> series;
+  final List<charts.Series<RendaGasto, String>> series;
 
   @override
   Widget build(BuildContext context) {

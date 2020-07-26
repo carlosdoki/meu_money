@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_money_formatter/flutter_money_formatter.dart';
 import 'package:meu_money/constants.dart';
+import 'package:meu_money/models/Contas.dart';
+import 'package:meu_money/models/Extrato.dart';
 import 'package:meu_money/size_config.dart';
 
 class Saldo extends StatelessWidget {
@@ -15,10 +17,14 @@ class Saldo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _saldo = 0.0;
+    contas.forEach((element) => _saldo = _saldo + element.saldo);
+
+    FlutterMoneyFormatter fmfSaldo = FlutterMoneyFormatter(amount: _saldo);
     FlutterMoneyFormatter fmfRendas = FlutterMoneyFormatter(amount: rendas);
     FlutterMoneyFormatter fmfGastos = FlutterMoneyFormatter(amount: gastos);
-    FlutterMoneyFormatter fmfSaldo = FlutterMoneyFormatter(amount: rendas)
-        .fastCalc(type: FastCalcType.substraction, amount: gastos);
+    // FlutterMoneyFormatter fmfSaldo = FlutterMoneyFormatter(amount: rendas)
+    // .fastCalc(type: FastCalcType.substraction, amount: gastos);
 
     return SizedBox(
       height: SizeConfig.defaultSize * 12,

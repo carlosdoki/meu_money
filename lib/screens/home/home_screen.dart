@@ -5,7 +5,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:meu_money/components/my_bottom_nv_bar.dart';
 import 'package:meu_money/constants.dart';
 import 'package:meu_money/models/Despesas.dart';
+import 'package:meu_money/models/Extrato.dart';
+import 'package:meu_money/models/RendasGastos.dart';
 import 'package:meu_money/screens/home/components/categorias.dart';
+import 'package:meu_money/screens/home/components/dicas_carrousel.dart';
 import 'package:meu_money/screens/home/components/grafico.dart';
 import 'package:meu_money/screens/home/components/saldo.dart';
 import 'package:meu_money/size_config.dart';
@@ -13,13 +16,36 @@ import 'package:meu_money/size_config.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<Despesas, String>> series = [
+    var _rendas = extratos.where((i) => i.tipo == "Debit").toList();
+    var _gastos = extratos.where((i) => i.tipo == "Credit").toList();
+
+    double totalRendas = 0;
+    _rendas.forEach((element) => totalRendas = totalRendas + element.valor);
+
+    double totalGastos = 0;
+    _gastos.forEach((element) => totalGastos = totalGastos + element.valor);
+
+    final List<RendaGasto> data = [
+      RendaGasto(
+        tipo: "Renda",
+        valor: totalRendas,
+        barColor: charts.ColorUtil.fromDartColor(Colors.green),
+      ),
+      RendaGasto(
+        tipo: "Gasto",
+        valor: totalGastos,
+        barColor: charts.ColorUtil.fromDartColor(Colors.red),
+      ),
+    ];
+
+    List<charts.Series<RendaGasto, String>> series = [
       charts.Series(
-          id: "Subscribers",
-          data: data,
-          domainFn: (Despesas series, _) => series.year,
-          measureFn: (Despesas series, _) => series.subscribers,
-          colorFn: (Despesas series, _) => series.barColor)
+        id: "Renda x Gastos",
+        data: data,
+        domainFn: (RendaGasto series, _) => series.tipo,
+        measureFn: (RendaGasto series, _) => series.valor,
+        colorFn: (RendaGasto series, _) => series.barColor,
+      )
     ];
 
     SizeConfig().init(context);
@@ -32,11 +58,15 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             // charts.BarChart(series, animate: true),
             Saldo(
-              rendas: 2000.0,
-              gastos: 3000.0,
+              rendas: totalRendas,
+              gastos: totalGastos,
             ),
             Categorias(),
             Grafico(series: series),
+            SizedBox(
+              height: kDefaultPadding,
+            ),
+            DicasCarrousel(),
           ],
         ),
       ),

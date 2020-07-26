@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:meu_money/constants.dart';
 import 'package:meu_money/screens/home/home_screen.dart';
 import 'package:meu_money/screens/login/login_screen.dart';
@@ -27,13 +29,13 @@ class _StartScreenState extends State<StartScreen> {
 
   teste() async {
     SecurityContext clientContext = new SecurityContext()
-      ..setTrustedCertificates(
+      ..setClientAuthorities(
           '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_certificate.crt')
       ..usePrivateKey(
           '/Users/carlosdoki/Projetos/meu_money/assets/certificados/Banco_1/certs/client_private_key.key');
     var client = new HttpClient(context: clientContext);
-    var request = await client
-        .postUrl(Uri.parse("https://as1.tecban-sandbox.o3bank.co.uk/token"));
+    var request = await client.postUrl(Uri.parse(
+        "https://as1.tecban-sandbox.o3bank.co.uk/token?grant_type=client_credentials&scope=accounts%20openid"));
     var response = await request.close();
     print(request);
     return response;
@@ -43,7 +45,7 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    teste();
+    // teste();
     getUserValueSF().then((result) {
       print(result);
       if (result != "") {
