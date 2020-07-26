@@ -83,89 +83,91 @@ class _StartScreenState extends State<StartScreen> {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: SafeArea(
-        child: Container(
-          color: Colors.black26,
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 35.0,
-              ),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: 'Hora de transformar as suas finanças',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700,
-                  ),
+        child: SingleChildScrollView(
+          child: Container(
+            color: Colors.black26,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 35.0,
                 ),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              Container(
-                child: Image.asset('assets/images/inicio.png'),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text:
-                      'O caminho está à sua frente. Por estar aqui, você já deu o maior passo em direção à sua transformação financeira. E nós o guiaremos no processo',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              Container(
-                width: 250,
-                child: FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Start2Screen()),
-                    );
-                  },
-                  child: Text(
-                    'INICIAR',
-                    textAlign: TextAlign.center,
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: 'Hora de transformar as suas finanças',
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: Colors.blueAccent,
+                SizedBox(
+                  height: 15.0,
                 ),
-              ),
-              FlatButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
-                  ),
+                Container(
+                  child: Image.asset('assets/images/inicio.png'),
                 ),
-                child: Text(
-                  "Já tenho cadastro",
+                SizedBox(
+                  height: 15.0,
+                ),
+                RichText(
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 20.0,
+                  text: TextSpan(
+                    text:
+                        'O caminho está à sua frente. Por estar aqui, você já deu o maior passo em direção à sua transformação financeira. E nós o guiaremos no processo',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 15.0,
+                ),
+                Container(
+                  width: 250,
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Start2Screen()),
+                      );
+                    },
+                    child: Text(
+                      'INICIAR',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.blueAccent,
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  ),
+                  child: Text(
+                    "Já tenho cadastro",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

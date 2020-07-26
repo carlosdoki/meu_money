@@ -17,89 +17,93 @@ class LoginScreen extends StatelessWidget {
               },
             ),
           ),
-          body: Container(
-            height: double.infinity,
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "É a hora de iniciar a sua jornada!",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontSize: 32,
-                  ),
-                ),
-                Text(
-                  "Crie sua conta and inicie a transformação da suas finaças",
-                  style: TextStyle(
-                    color: kTextLightColor,
-                    fontSize: 24,
-                  ),
-                ),
-                SizedBox(
-                  height: kDefaultPadding / 2,
-                ),
-                _buildEmailTF(
-                  onPress: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
-                  ),
-                ),
-                Column(
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                // height: double.infinity,
+                child: Column(
                   children: <Widget>[
                     Text(
-                      '- OU -',
+                      "É a hora de iniciar a sua jornada!",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        color: kTextColor,
+                        fontSize: 32,
+                      ),
+                    ),
+                    Text(
+                      "Crie sua conta and inicie a transformação da suas finaças",
+                      style: TextStyle(
+                        color: kTextLightColor,
+                        fontSize: 24,
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: kDefaultPadding / 2,
                     ),
-                    Text(
-                      'Entrar com',
-                      style: TextStyle(
-                        color: kTextColor,
+                    _buildEmailTF(
+                      onPress: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
                       ),
-                    )
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          '- OU -',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Text(
+                          'Entrar com',
+                          style: TextStyle(
+                            color: kTextColor,
+                          ),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 30.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          _buildSocialBtn(
+                            () => print('Entrar com Facebook'),
+                            // () => _FacebookLogInButton(),
+                            AssetImage('assets/images/facebook.png'),
+                            Colors.white,
+                          ),
+                          _buildSocialBtn(
+                            // () => signInWithGoogle(),
+                            () => print('Entrar com Google'),
+                            AssetImage('assets/images/google_logo.png'),
+                            Colors.white,
+                          ),
+                          // if (supportsAppleSignIn == true)
+                          _buildSocialBtn(
+                            () => print('Entrar com Apple'),
+                            // () => signInWithApple(),
+                            AssetImage('assets/images/apple.png'),
+                            Colors.black,
+                          ),
+                          _buildSocialBtn(
+                            () => print('Entrar com Itau'),
+                            // () => signInWithApple(),
+                            AssetImage('assets/images/itau.png'),
+                            Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 30.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      _buildSocialBtn(
-                        () => print('Entrar com Facebook'),
-                        // () => _FacebookLogInButton(),
-                        AssetImage('assets/images/facebook.png'),
-                        Colors.white,
-                      ),
-                      _buildSocialBtn(
-                        // () => signInWithGoogle(),
-                        () => print('Entrar com Google'),
-                        AssetImage('assets/images/google_logo.png'),
-                        Colors.white,
-                      ),
-                      // if (supportsAppleSignIn == true)
-                      _buildSocialBtn(
-                        () => print('Entrar com Apple'),
-                        // () => signInWithApple(),
-                        AssetImage('assets/images/apple.png'),
-                        Colors.black,
-                      ),
-                      _buildSocialBtn(
-                        () => print('Entrar com Itau'),
-                        // () => signInWithApple(),
-                        AssetImage('assets/images/itau.png'),
-                        Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           )),
     );

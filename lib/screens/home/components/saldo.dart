@@ -60,7 +60,7 @@ class Saldo extends StatelessWidget {
               "R\$ ${fmfSaldo.output.nonSymbol}",
               style: TextStyle(
                 color: kTextColor,
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -102,7 +102,7 @@ class Saldo extends StatelessWidget {
                         "R\$ ${fmfRendas.output.nonSymbol}",
                         style: TextStyle(
                           color: Colors.green,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                     ],
@@ -143,7 +143,7 @@ class Saldo extends StatelessWidget {
                         "R\$ ${fmfGastos.output.nonSymbol}",
                         style: TextStyle(
                           color: Colors.red,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                     ],

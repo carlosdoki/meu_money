@@ -17,7 +17,7 @@ class Grafico extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.3,
+      aspectRatio: 1.8,
       child: Container(
         height: SizeConfig.defaultSize,
         decoration: BoxDecoration(

@@ -37,7 +37,7 @@ class _DicasCarrouselState extends State<DicasCarrousel> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: AspectRatio(
-        aspectRatio: 0.85,
+        aspectRatio: 1.4,
         child: PageView.builder(
           onPageChanged: (value) {
             setState(() {

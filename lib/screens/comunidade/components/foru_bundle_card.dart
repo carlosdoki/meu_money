@@ -33,7 +33,7 @@ class ForumBundleCard extends StatelessWidget {
                     Text(
                       forum.nome,
                       style: TextStyle(
-                        fontSize: defaultSize * 2.2,
+                        fontSize: defaultSize * 2.0,
                         color: Colors.white,
                       ),
                       maxLines: 3,
@@ -46,25 +46,28 @@ class ForumBundleCard extends StatelessWidget {
                       forum.descricao,
                       style: TextStyle(
                         color: Colors.white54,
+                        fontSize: 12,
                       ),
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Spacer(),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         IconButton(
                           icon: SvgPicture.asset(
                             "assets/icons/chat.svg",
                             color: Colors.white,
-                            height: 12,
+                            height: 10,
                           ),
                         ),
                         Text(
                           "${forum.qtdeComentarios}",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 10,
                           ),
                         ),
                         Spacer(),
@@ -72,14 +75,14 @@ class ForumBundleCard extends StatelessWidget {
                           icon: SvgPicture.asset(
                             "assets/icons/user.svg",
                             color: Colors.white,
-                            height: 12,
+                            height: 10,
                           ),
                         ),
                         Text(
                           "${forum.qtdeUsuarios}",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 10,
                           ),
                         ),
                         Spacer(),

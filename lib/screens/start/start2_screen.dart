@@ -151,7 +151,7 @@ class Objetivos extends StatelessWidget {
               style: TextStyle(
                   color: Colors.blueAccent,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20.0),
+                  fontSize: 16.0),
             ),
           ),
         ],
